@@ -14,16 +14,18 @@ export class Queue<Type> implements queueInterface<Type> {
    private QueueData: Array<Type> = [];
 
    constructor() { }
-
+   //Verifica se a fila está vazia
    isEmpty(): boolean {
       let result = this.QueueData.length <= 0;
       return result;
    }
 
+   //Adicinar elemento no final da fila
    enqueue(dataItem: Type): void {
-      this.QueueData.push(dataItem);
+      this.QueueData.push(dataItem); 
    }
 
+   //remove o primeiro elemento da fila
    dequeue(): Type | undefined {
       if (this.isEmpty()) {
          console.log("A fila está vazia");
@@ -34,17 +36,20 @@ export class Queue<Type> implements queueInterface<Type> {
       }
    }
 
+   //Retorna o numero de elementos da fila
    count(): number {
       let len = this.QueueData.length;
       return len;
    }
 
+   //exibe todos os elementos da fila
    printQueue(): void {
       for (let i = 0; i < this.QueueData.length; i++) {
          console.log(this.QueueData[i]);
       }
    }
 
+   //exibe o primeiro elemento da fila(ponteiro HEAD), caso a fila esteja vazia retorna nulo
    peek(): Type | undefined {
       if (this.isEmpty()) {
          console.log("A fila está vazia");
@@ -54,7 +59,7 @@ export class Queue<Type> implements queueInterface<Type> {
          return element;
       }
    }
-
+   //Verifica se a fila contem o elemento fornecido ou não
    contains(dataItem: Type): boolean {
       if (this.QueueData.includes(dataItem)) {
          return true;
@@ -63,6 +68,7 @@ export class Queue<Type> implements queueInterface<Type> {
       }
    }
 
+   //Remove todos os elementos da fila
    clear(): void {
       this.QueueData.length = 0;
    }
